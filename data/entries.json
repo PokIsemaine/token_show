@@ -4,7 +4,7 @@
     "company": "家里蹲",
     "department": "个人",
     "tokenType": "OpenAI",
-    "monthlyQuota": "$0/月",
+    "monthlyQuota": "未知",
     "reimbursementMethod": "个人支付",
     "restrictions": "无限制",
     "note": "测试数据",
