@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 举报不实信息
+    url: https://github.com/PokIsemaine/token_show/issues/new?labels=report&template=report.yml
+    about: 如发现不实信息，请在此举报

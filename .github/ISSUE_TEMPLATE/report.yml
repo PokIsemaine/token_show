@@ -1,0 +1,19 @@
+name: 举报不实信息
+description: 举报已提交的不实或过时的 Token 报销信息
+labels: ["report"]
+body:
+  - type: input
+    id: issueNumber
+    attributes:
+      label: 原 Issue 编号
+      description: 请提供包含不实信息的 Issue 编号
+      placeholder: "#1"
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 举报原因
+      description: 请说明为什么该信息不实或过时
+    validations:
+      required: true

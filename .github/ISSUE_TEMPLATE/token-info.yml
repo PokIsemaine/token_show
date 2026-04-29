@@ -1,0 +1,64 @@
+name: 提交 Token 报销信息
+description: 分享你所在公司的 AI Token 报销/补贴待遇
+labels: ["token-info"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你分享 Token 报销信息！请如实填写，个人敏感信息（如姓名）无需填写。
+  - type: input
+    id: company
+    attributes:
+      label: 公司
+      description: 公司全称或常用简称
+      placeholder: 如：字节跳动、阿里巴巴、OpenAI
+    validations:
+      required: true
+  - type: input
+    id: department
+    attributes:
+      label: 部门/团队
+      description: 具体部门或团队名称
+      placeholder: 如：AI Lab、基础架构部
+    validations:
+      required: false
+  - type: input
+    id: tokenType
+    attributes:
+      label: Token 类型
+      description: 使用的 AI 模型/服务
+      placeholder: 如：OpenAI GPT-4、Claude Opus、内部模型、Azure OpenAI
+    validations:
+      required: true
+  - type: input
+    id: monthlyQuota
+    attributes:
+      label: 月度额度
+      description: 每月可用的 Token 额度或费用上限
+      placeholder: 如：$200/月、1000万 tokens/月
+    validations:
+      required: true
+  - type: input
+    id: reimbursementMethod
+    attributes:
+      label: 报销方式
+      description: 获取 Token 额度的方式
+      placeholder: 如：公司账号直充、个人垫付报销、API Key 分发
+    validations:
+      required: true
+  - type: textarea
+    id: restrictions
+    attributes:
+      label: 限制条件
+      description: 使用时有哪些限制
+      placeholder: 如：仅限工作用途、需审批、仅特定模型可用
+    validations:
+      required: false
+  - type: textarea
+    id: note
+    attributes:
+      label: 备注
+      description: 其他补充信息
+      placeholder: 如：额度可叠加、季度结算等
+    validations:
+      required: false
