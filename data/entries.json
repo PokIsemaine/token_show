@@ -1,14 +1,1 @@
-[
-  {
-    "id": "issue-1",
-    "company": "家里蹲",
-    "department": "个人2",
-    "tokenType": "OpenAI",
-    "monthlyQuota": "未知",
-    "reimbursementMethod": "个人支付",
-    "restrictions": "无限制",
-    "note": "测试数据",
-    "submittedAt": "2026-04-29",
-    "issueNumber": 1
-  }
-]
+[]
