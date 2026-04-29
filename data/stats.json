@@ -2,6 +2,7 @@
   "totalEntries": 3,
   "companies": 3,
   "tokenTypes": {
+    "任意（未限制供应商）": 1,
     "OpenAI": 2,
     "Anthropic": 1,
     "Google": 1,

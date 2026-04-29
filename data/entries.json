@@ -3,7 +3,9 @@
     "id": "i7-美团",
     "company": "美团",
     "department": "未填写",
-    "tokenType": [],
+    "tokenType": [
+      "任意（未限制供应商）"
+    ],
     "monthlyQuota": "1000 Token / 月",
     "reimbursementMethod": [
       "公司账号直充 / 公司发放 API Key"
