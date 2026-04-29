@@ -1,6 +1,8 @@
 {
-  "totalEntries": 0,
-  "companies": 0,
-  "tokenTypes": {},
+  "totalEntries": 1,
+  "companies": 1,
+  "tokenTypes": {
+    "OpenAI": 1
+  },
   "lastUpdated": "2026-04-29"
 }

@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "i5-腾讯",
+    "company": "腾讯",
+    "department": "未填写",
+    "tokenType": [
+      "OpenAI"
+    ],
+    "monthlyQuota": "1000 $（美元） 年",
+    "reimbursementMethod": [
+      "公司账号直充 / 公司发放 API Key"
+    ],
+    "restrictions": "",
+    "note": "",
+    "publishedAt": "2026-04-29",
+    "submittedAt": "2026-04-29",
+    "issueNumber": 5,
+    "comments": []
+  }
+]
