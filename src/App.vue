@@ -17,20 +17,23 @@ const filters = ref({
 })
 
 const companies = computed(() => [...new Set(entries.value.map(e => e.company))].sort())
-const tokenTypes = computed(() => [...new Set(entries.value.map(e => e.tokenType))].sort())
-const methods = computed(() => [...new Set(entries.value.map(e => e.reimbursementMethod))].sort())
+const tokenTypes = computed(() => [...new Set(entries.value.flatMap(e => e.tokenType))].sort())
+const methods = computed(() => [...new Set(entries.value.flatMap(e => e.reimbursementMethod))].sort())
 
 const filteredEntries = computed(() => {
   return entries.value.filter(e => {
     if (filters.value.company && e.company !== filters.value.company) return false
-    if (filters.value.tokenType && e.tokenType !== filters.value.tokenType) return false
-    if (filters.value.reimbursementMethod && e.reimbursementMethod !== filters.value.reimbursementMethod) return false
+    if (filters.value.tokenType && !e.tokenType.includes(filters.value.tokenType)) return false
+    if (filters.value.reimbursementMethod && !e.reimbursementMethod.includes(filters.value.reimbursementMethod)) return false
     if (filters.value.keyword) {
       const kw = filters.value.keyword.toLowerCase()
+      const tokenStr = Array.isArray(e.tokenType) ? e.tokenType.join(' ') : e.tokenType
+      const methodStr = Array.isArray(e.reimbursementMethod) ? e.reimbursementMethod.join(' ') : e.reimbursementMethod
       return (
         e.company.toLowerCase().includes(kw) ||
         e.department.toLowerCase().includes(kw) ||
-        e.tokenType.toLowerCase().includes(kw) ||
+        tokenStr.toLowerCase().includes(kw) ||
+        methodStr.toLowerCase().includes(kw) ||
         e.note.toLowerCase().includes(kw)
       )
     }

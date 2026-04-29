@@ -92,32 +92,27 @@ function parseIssue(issue) {
   // Get comments
   const comments = fetchComments(issue.number)
 
-  // Build entries
+  // Build entries - one per company, with all suppliers and methods aggregated
   const entries = []
   const seen = new Map()
 
   for (const c of company) {
-    for (const t of tokenType) {
-      for (const m of reimbursementMethod) {
-        const key = `${c}|${t}|${m}`
-        if (!seen.has(key)) {
-          seen.set(key, true)
-          entries.push({
-            id: `i${issue.number}-${c}-${t}-${m}`.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9一-龥-]/g, '').slice(0, 80),
-            company: c,
-            department: parseSection('部门') || '未填写',
-            tokenType: t,
-            monthlyQuota,
-            reimbursementMethod: m,
-            restrictions: parseSection('限制条件') || '',
-            note: parseSection('备注') || '',
-            publishedAt: issue.createdAt?.split('T')[0] || '',
-            submittedAt: issue.createdAt?.split('T')[0] || '',
-            issueNumber: issue.number,
-            comments,
-          })
-        }
-      }
+    if (!seen.has(c)) {
+      seen.set(c, true)
+      entries.push({
+        id: `i${issue.number}-${c}`.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9一-龥-]/g, '').slice(0, 80),
+        company: c,
+        department: parseSection('部门') || '未填写',
+        tokenType,
+        monthlyQuota,
+        reimbursementMethod: reimbursementMethod,
+        restrictions: parseSection('限制条件') || '',
+        note: parseSection('备注') || '',
+        publishedAt: issue.createdAt?.split('T')[0] || '',
+        submittedAt: issue.createdAt?.split('T')[0] || '',
+        issueNumber: issue.number,
+        comments,
+      })
     }
   }
 
@@ -129,7 +124,9 @@ function buildStats(entries) {
   const companies = new Set()
   for (const e of entries) {
     companies.add(e.company)
-    tokenTypes[e.tokenType] = (tokenTypes[e.tokenType] || 0) + 1
+    for (const t of e.tokenType) {
+      tokenTypes[t] = (tokenTypes[t] || 0) + 1
+    }
   }
   return {
     totalEntries: entries.length,

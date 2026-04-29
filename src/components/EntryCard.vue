@@ -9,6 +9,9 @@ const props = defineProps({
 })
 
 const expanded = ref(false)
+
+const tokenTypes = Array.isArray(props.entry.tokenType) ? props.entry.tokenType : [props.entry.tokenType]
+const methods = Array.isArray(props.entry.reimbursementMethod) ? props.entry.reimbursementMethod : [props.entry.reimbursementMethod]
 </script>
 
 <template>
@@ -21,9 +24,15 @@ const expanded = ref(false)
         <h3 class="text-lg font-semibold">{{ entry.company }}</h3>
         <p class="text-sm text-gray-500 dark:text-gray-400">{{ entry.department }}</p>
       </div>
-      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
-        {{ entry.tokenType }}
-      </span>
+      <div class="flex flex-wrap gap-1 justify-end max-w-[120px]">
+        <span
+          v-for="t in tokenTypes"
+          :key="t"
+          class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200"
+        >
+          {{ t }}
+        </span>
+      </div>
     </div>
 
     <div class="space-y-2 text-sm">
@@ -31,9 +40,14 @@ const expanded = ref(false)
         <span class="text-gray-500 dark:text-gray-400 shrink-0">额度</span>
         <span class="font-medium text-green-600 dark:text-green-400">{{ entry.monthlyQuota }}</span>
       </div>
-      <div class="flex items-center gap-2">
-        <span class="text-gray-500 dark:text-gray-400 shrink-0">报销方式</span>
-        <span>{{ entry.reimbursementMethod }}</span>
+      <div class="flex flex-wrap gap-1">
+        <span
+          v-for="m in methods"
+          :key="m"
+          class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-gray-100 dark:bg-gray-700"
+        >
+          {{ m }}
+        </span>
       </div>
     </div>
 
