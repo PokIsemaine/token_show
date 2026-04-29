@@ -2,7 +2,6 @@
 import { ref, computed, onMounted } from 'vue'
 import EntryCard from './components/EntryCard.vue'
 import FilterBar from './components/FilterBar.vue'
-import StatsChart from './components/StatsChart.vue'
 import entriesData from '../data/entries.json'
 import statsData from '../data/stats.json'
 
@@ -39,8 +38,6 @@ const filteredEntries = computed(() => {
   })
 })
 
-const showStats = ref(false)
-
 onMounted(() => {
   loading.value = false
 })
@@ -55,32 +52,19 @@ onMounted(() => {
           <h1 class="text-2xl font-bold tracking-tight">Token Show</h1>
           <p class="text-sm text-gray-500 dark:text-gray-400">各公司 AI Token 报销待遇一览</p>
         </div>
-        <div class="flex items-center gap-3">
-          <button
-            @click="showStats = !showStats"
-            class="px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-          >
-            {{ showStats ? '列表' : '统计' }}
-          </button>
-          <a
-            href="https://github.com/PokIsemaine/token_show/issues/new?template=token-info.yml&labels=token-info"
-            target="_blank"
-            rel="noopener"
-            class="px-4 py-2 text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
-          >
-            + 提交信息
-          </a>
-        </div>
+        <a
+          href="https://github.com/PokIsemaine/token_show/issues/new?template=token-info.yml&labels=token-info"
+          target="_blank"
+          rel="noopener"
+          class="px-4 py-2 text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+        >
+          + 提交信息
+        </a>
       </div>
     </header>
 
     <!-- Main -->
     <main class="max-w-6xl mx-auto px-4 py-6">
-      <!-- Stats view -->
-      <div v-if="showStats" class="mb-8">
-        <StatsChart :entries="entries" :stats="stats" />
-      </div>
-
       <!-- Filter bar -->
       <FilterBar
         v-model="filters"

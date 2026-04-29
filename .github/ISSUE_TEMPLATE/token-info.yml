@@ -6,60 +6,42 @@ body:
     attributes:
       value: |
         感谢你分享 Token 报销信息！请如实填写，个人敏感信息（如姓名）无需填写。
-  - type: checkboxes
+  - type: dropdown
     id: company
     attributes:
-      label: 公司（可多选）
+      label: 公司
+      description: 从列表中选择你的公司
       options:
-        - label: "字节跳动 / TikTok"
-          id: 字节跳动
-        - label: "阿里巴巴"
-          id: 阿里巴巴
-        - label: "腾讯"
-          id: 腾讯
-        - label: "百度"
-          id: 百度
-        - label: "华为"
-          id: 华为
-        - label: "美团"
-          id: 美团
-        - label: "京东"
-          id: 京东
-        - label: "小米"
-          id: 小米
-        - label: "网易"
-          id: 网易
-        - label: "快手"
-          id: 快手
-        - label: "小红书"
-          id: 小红书
-        - label: "蚂蚁集团"
-          id: 蚂蚁集团
-        - label: "商汤科技"
-          id: 商汤科技
-        - label: "旷视科技"
-          id: 旷视科技
-        - label: "OpenAI"
-          id: OpenAI
-        - label: "Google"
-          id: Google
-        - label: "Microsoft"
-          id: Microsoft
-        - label: "Meta"
-          id: Meta
-        - label: "Amazon"
-          id: Amazon
-        - label: "Anthropic"
-          id: Anthropic
-        - label: "其他"
-          id: 其他
+        - 请选择公司...
+        - 字节跳动
+        - TikTok
+        - 阿里巴巴
+        - 腾讯
+        - 百度
+        - 华为
+        - 美团
+        - 京东
+        - 小米
+        - 网易
+        - 快手
+        - 小红书
+        - 蚂蚁集团
+        - 商汤科技
+        - 旷视科技
+        - OpenAI
+        - Google
+        - Microsoft
+        - Meta
+        - Amazon
+        - Anthropic
+        - 其他
     validations:
       required: true
   - type: input
     id: companyOther
     attributes:
       label: 其他公司名称
-      description: 如在上述列表中未找到，请填写公司全称
+      description: 如在上述列表中选择了"其他"，请填写公司全称
       placeholder: 请填写公司名称
     validations:
       required: false
@@ -74,36 +56,36 @@ body:
   - type: checkboxes
     id: tokenType
     attributes:
-      label: Token 类型（可多选）
+      label: 供应商（可多选）
       options:
-        - label: "OpenAI GPT 系列"
-          id: OpenAI GPT
-        - label: "Anthropic Claude 系列"
-          id: Anthropic Claude
-        - label: "Google Gemini 系列"
-          id: Google Gemini
-        - label: "通义千问 Qwen"
+        - label: "OpenAI"
+          id: OpenAI
+        - label: "Anthropic"
+          id: Anthropic
+        - label: "Google"
+          id: Google
+        - label: "阿里云（通义千问 Qwen）"
           id: 通义千问 Qwen
-        - label: "文心一言 ERNIE"
+        - label: "百度智能云（文心一言 ERNIE）"
           id: 文心一言 ERNIE
-        - label: "豆包 Doubao"
+        - label: "字节跳动（豆包 Doubao）"
           id: 豆包 Doubao
-        - label: "混元 Hunyuan"
+        - label: "腾讯云（混元 Hunyuan）"
           id: 混元 Hunyuan
-        - label: "智谱 GLM / ChatGLM"
+        - label: "智谱 AI（GLM / ChatGLM）"
           id: 智谱 GLM
         - label: "DeepSeek"
           id: DeepSeek
-        - label: "Moonshot Kimi"
-          id: Moonshot Kimi
+        - label: "Moonshot"
+          id: Moonshot
         - label: "MiniMax"
           id: MiniMax
-        - label: "内部自研模型"
-          id: 内部自研模型
-        - label: "Azure OpenAI"
-          id: Azure OpenAI
-        - label: "AWS Bedrock"
-          id: AWS Bedrock
+        - label: "内部自研"
+          id: 内部自研
+        - label: "Azure"
+          id: Azure
+        - label: "AWS"
+          id: AWS
         - label: "Cohere"
           id: Cohere
         - label: "其他"
@@ -113,9 +95,9 @@ body:
   - type: input
     id: tokenTypeOther
     attributes:
-      label: 其他 Token 类型
-      description: 如在上述列表中未找到，请填写具体模型名称
-      placeholder: 请填写模型名称
+      label: 其他供应商
+      description: 如在上述列表中未找到，请填写供应商名称
+      placeholder: 请填写供应商名称
     validations:
       required: false
   - type: input

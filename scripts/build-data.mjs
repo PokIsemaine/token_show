@@ -56,12 +56,15 @@ function parseIssue(issue) {
     return match ? match[1].trim().replace(/_No response_/g, '').replace(/^- /, '').trim() : ''
   }
 
-  // Company
-  const companyBoxes = parseCheckboxes('公司')
-  const companyOther = parseInput('companyOther')
-  let company = companyBoxes.filter(c => c !== '其他')
-  if (companyOther && !company.includes(companyOther)) {
-    company.push(companyOther)
+  // Company: single select dropdown
+  const companyRaw = parseInput('company')
+  let company = []
+  if (companyRaw && companyRaw !== '请选择公司...') {
+    if (companyRaw === '其他' && parseInput('companyOther')) {
+      company.push(parseInput('companyOther'))
+    } else {
+      company.push(companyRaw)
+    }
   }
 
   // Token Type
