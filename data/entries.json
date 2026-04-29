@@ -1,5 +1,21 @@
 [
   {
+    "id": "i7-美团",
+    "company": "美团",
+    "department": "未填写",
+    "tokenType": [],
+    "monthlyQuota": "1000 Token / 月",
+    "reimbursementMethod": [
+      "公司账号直充 / 公司发放 API Key"
+    ],
+    "restrictions": "仅限工作使用",
+    "note": "备注测试",
+    "publishedAt": "2026-04-29",
+    "submittedAt": "2026-04-29",
+    "issueNumber": 7,
+    "comments": []
+  },
+  {
     "id": "i6-百度",
     "company": "百度",
     "department": "ai lab",
