@@ -1,8 +1,23 @@
 {
-  "totalEntries": 1,
-  "companies": 1,
+  "totalEntries": 2,
+  "companies": 2,
   "tokenTypes": {
-    "OpenAI": 1
+    "OpenAI": 2,
+    "Anthropic": 1,
+    "Google": 1,
+    "阿里云（通义千问 Qwen）": 1,
+    "百度智能云（文心一言 ERNIE）": 1,
+    "字节跳动（豆包 Doubao）": 1,
+    "腾讯云（混元 Hunyuan）": 1,
+    "智谱 AI（GLM / ChatGLM）": 1,
+    "DeepSeek": 1,
+    "Moonshot": 1,
+    "MiniMax": 1,
+    "内部自研": 1,
+    "Azure": 1,
+    "AWS": 1,
+    "Cohere": 1,
+    "5215152151": 1
   },
   "lastUpdated": "2026-04-29"
 }
