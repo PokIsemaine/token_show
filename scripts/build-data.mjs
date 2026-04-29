@@ -63,7 +63,7 @@ function parseIssue(issue) {
     tokenType.push(tokenOther)
   }
 
-  // Quota
+  // Quota: amount + unit + period
   const quotaAmount = parseSection('额度数值') || '未知'
   const quotaUnitBoxes = parseCheckboxes('额度单位')
   const quotaUnitOther = parseSection('其他单位')
@@ -72,9 +72,13 @@ function parseIssue(issue) {
     quotaUnit.push(quotaUnitOther)
   }
   const quotaPeriodBoxes = parseCheckboxes('报销周期')
-  const unitStr = [...new Set(quotaUnit)].join('')
-  const periodStr = quotaPeriodBoxes.join('、')
-  const monthlyQuota = `${quotaAmount} ${unitStr}${periodStr ? ' ' + periodStr : ''}`.trim()
+  // Normalize unit display
+  const unitMap = { '$（美元）': '$', '¥（人民币）': '¥', 'Token 数量': 'Token' }
+  const displayUnit = quotaUnit.map(u => unitMap[u] || u).join('')
+  const displayPeriod = quotaPeriodBoxes.join('/')
+  const monthlyQuota = displayPeriod
+    ? `${quotaAmount} ${displayUnit} / ${displayPeriod}`
+    : `${quotaAmount} ${displayUnit}`
 
   // Reimbursement Method
   const methodBoxes = parseCheckboxes('报销方式')
@@ -102,7 +106,7 @@ function parseIssue(issue) {
       entries.push({
         id: `i${issue.number}-${c}`.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9一-龥-]/g, '').slice(0, 80),
         company: c,
-        department: parseSection('部门') || '未填写',
+        department: parseSection('部门/团队') || '未填写',
         tokenType,
         monthlyQuota,
         reimbursementMethod: reimbursementMethod,

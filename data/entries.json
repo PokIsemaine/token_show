@@ -2,7 +2,7 @@
   {
     "id": "i6-百度",
     "company": "百度",
-    "department": "未填写",
+    "department": "ai lab",
     "tokenType": [
       "OpenAI",
       "Anthropic",
@@ -21,7 +21,7 @@
       "Cohere",
       "5215152151"
     ],
-    "monthlyQuota": "111111111 Token 数量 无限制",
+    "monthlyQuota": "111111111 Token / 无限制",
     "reimbursementMethod": [
       "公司账号直充 / 公司发放 API Key"
     ],
@@ -30,7 +30,13 @@
     "publishedAt": "2026-04-29",
     "submittedAt": "2026-04-29",
     "issueNumber": 6,
-    "comments": []
+    "comments": [
+      {
+        "author": "PokIsemaine",
+        "body": "评论区",
+        "createdAt": "2026-04-29T12:14:51Z"
+      }
+    ]
   },
   {
     "id": "i5-腾讯",
@@ -39,7 +45,7 @@
     "tokenType": [
       "OpenAI"
     ],
-    "monthlyQuota": "1000 $（美元） 年",
+    "monthlyQuota": "1000 $ / 年",
     "reimbursementMethod": [
       "公司账号直充 / 公司发放 API Key"
     ],

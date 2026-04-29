@@ -3,6 +3,8 @@ name: Build Data
 on:
   issues:
     types: [opened, edited, closed, deleted, labeled, unlabeled]
+  issue_comment:
+    types: [created, edited, deleted]
   schedule:
     - cron: '17 6 * * *'
   workflow_dispatch:

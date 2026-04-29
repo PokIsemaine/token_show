@@ -55,7 +55,7 @@ const hasFilters = computed(() =>
       @change="update('tokenType', $event.target.value)"
       class="px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
     >
-      <option value="">全部类型</option>
+      <option value="">全部供应商</option>
       <option v-for="t in tokenTypes" :key="t" :value="t">{{ t }}</option>
     </select>
 

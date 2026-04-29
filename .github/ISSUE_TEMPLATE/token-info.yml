@@ -90,6 +90,8 @@ body:
           id: Cohere
         - label: "其他"
           id: 其他
+        - label: "任意（未限制供应商）"
+          id: 任意
     validations:
       required: true
   - type: input
