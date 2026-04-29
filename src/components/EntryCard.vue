@@ -19,20 +19,20 @@ const methods = Array.isArray(props.entry.reimbursementMethod) ? props.entry.rei
     class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition cursor-pointer"
     @click="expanded = !expanded"
   >
-    <div class="flex items-start justify-between mb-3">
-      <div>
-        <h3 class="text-lg font-semibold">{{ entry.company }}</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">{{ entry.department }}</p>
-      </div>
-      <div class="flex flex-wrap gap-1 justify-end max-w-[120px]">
-        <span
-          v-for="t in tokenTypes"
-          :key="t"
-          class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200"
-        >
-          {{ t }}
-        </span>
-      </div>
+    <div class="mb-3">
+      <h3 class="text-lg font-semibold">{{ entry.company }}</h3>
+      <p class="text-sm text-gray-500 dark:text-gray-400">{{ entry.department }}</p>
+    </div>
+
+    <!-- Supplier tags -->
+    <div class="flex flex-wrap gap-1 mb-3">
+      <span
+        v-for="t in tokenTypes"
+        :key="t"
+        class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200"
+      >
+        {{ t }}
+      </span>
     </div>
 
     <div class="space-y-2 text-sm">
