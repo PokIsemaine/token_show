@@ -6,7 +6,8 @@
     "tokenType": [
       "任意（未限制供应商）"
     ],
-    "monthlyQuota": "1000 Token / 月",
+    "quota": "1000 Token",
+    "quotaPeriod": "月",
     "reimbursementMethod": [
       "公司账号直充 / 公司发放 API Key"
     ],
@@ -39,7 +40,8 @@
       "Cohere",
       "5215152151"
     ],
-    "monthlyQuota": "111111111 Token / 无限制",
+    "quota": "111111111 Token",
+    "quotaPeriod": "无限制",
     "reimbursementMethod": [
       "公司账号直充 / 公司发放 API Key"
     ],
@@ -63,7 +65,8 @@
     "tokenType": [
       "OpenAI"
     ],
-    "monthlyQuota": "1000 $ / 年",
+    "quota": "1000 $",
+    "quotaPeriod": "年",
     "reimbursementMethod": [
       "公司账号直充 / 公司发放 API Key"
     ],

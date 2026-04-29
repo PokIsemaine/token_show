@@ -38,7 +38,11 @@ const methods = Array.isArray(props.entry.reimbursementMethod) ? props.entry.rei
     <div class="space-y-2 text-sm">
       <div class="flex items-center gap-2">
         <span class="text-gray-500 dark:text-gray-400 shrink-0">额度</span>
-        <span class="font-medium text-green-600 dark:text-green-400">{{ entry.monthlyQuota }}</span>
+        <span class="font-medium text-green-600 dark:text-green-400">{{ entry.quota || entry.monthlyQuota }}</span>
+      </div>
+      <div v-if="entry.quotaPeriod" class="flex items-center gap-2">
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">周期</span>
+        <span>{{ entry.quotaPeriod }}</span>
       </div>
       <div class="flex flex-wrap gap-1">
         <span

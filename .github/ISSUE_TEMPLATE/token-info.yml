@@ -143,12 +143,8 @@ body:
           id: /月
         - label: "日"
           id: /日
-        - label: "项目（一次性）"
-          id: /项目
         - label: "按需（无固定周期）"
           id: 按需
-        - label: "无限制"
-          id: 无限制
     validations:
       required: true
   - type: checkboxes

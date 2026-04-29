@@ -75,10 +75,8 @@ function parseIssue(issue) {
   // Normalize unit display
   const unitMap = { '$（美元）': '$', '¥（人民币）': '¥', 'Token 数量': 'Token' }
   const displayUnit = quotaUnit.map(u => unitMap[u] || u).join('')
-  const displayPeriod = quotaPeriodBoxes.join('/')
-  const monthlyQuota = displayPeriod
-    ? `${quotaAmount} ${displayUnit} / ${displayPeriod}`
-    : `${quotaAmount} ${displayUnit}`
+  const quota = `${quotaAmount} ${displayUnit}`.trim()
+  const quotaPeriod = quotaPeriodBoxes.join('/')
 
   // Reimbursement Method
   const methodBoxes = parseCheckboxes('报销方式')
@@ -108,7 +106,8 @@ function parseIssue(issue) {
         company: c,
         department: parseSection('部门/团队') || '未填写',
         tokenType,
-        monthlyQuota,
+        quota,
+        quotaPeriod,
         reimbursementMethod: reimbursementMethod,
         restrictions: parseSection('限制条件') || '',
         note: parseSection('备注') || '',
