@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": "i3-w-OpenAI-公司账号直充--公司发放-API-Key",
+    "company": "w",
+    "department": "未填写",
+    "tokenType": "OpenAI",
+    "monthlyQuota": "200 $（美元） 年",
+    "reimbursementMethod": "公司账号直充 / 公司发放 API Key",
+    "restrictions": "",
+    "note": "",
+    "publishedAt": "2026-04-29",
+    "submittedAt": "2026-04-29",
+    "issueNumber": 3,
+    "comments": []
+  },
+  {
+    "id": "i3-w-Anthropic-公司账号直充--公司发放-API-Key",
+    "company": "w",
+    "department": "未填写",
+    "tokenType": "Anthropic",
+    "monthlyQuota": "200 $（美元） 年",
+    "reimbursementMethod": "公司账号直充 / 公司发放 API Key",
+    "restrictions": "",
+    "note": "",
+    "publishedAt": "2026-04-29",
+    "submittedAt": "2026-04-29",
+    "issueNumber": 3,
+    "comments": []
+  },
+  {
+    "id": "i3-w-1w-公司账号直充--公司发放-API-Key",
+    "company": "w",
+    "department": "未填写",
+    "tokenType": "1w",
+    "monthlyQuota": "200 $（美元） 年",
+    "reimbursementMethod": "公司账号直充 / 公司发放 API Key",
+    "restrictions": "",
+    "note": "",
+    "publishedAt": "2026-04-29",
+    "submittedAt": "2026-04-29",
+    "issueNumber": 3,
+    "comments": []
+  }
+]
