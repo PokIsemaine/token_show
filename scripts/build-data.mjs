@@ -17,7 +17,7 @@ function parseIssue(issue) {
     ['company', /### 公司[\s\S]*?\n\n(.+?)(?:\n\n|\n$)/],
     ['department', /### 部门\/团队[\s\S]*?\n\n(.+?)(?:\n\n|\n$)/],
     ['tokenType', /### Token 类型[\s\S]*?\n\n(.+?)(?:\n\n|\n$)/],
-    ['monthlyQuota', /### 月度额度[\s\S]*?\n\n(.+?)(?:\n\n|\n$)/],
+    ['monthlyQuota', /### 额度[\s\S]*?\n\n(.+?)(?:\n\n|\n$)/],
     ['reimbursementMethod', /### 报销方式[\s\S]*?\n\n(.+?)(?:\n\n|\n$)/],
     ['restrictions', /### 限制条件[\s\S]*?\n\n([\s\S]+?)(?:\n\n###|\n$)/],
     ['note', /### 备注[\s\S]*?\n\n([\s\S]+?)(?:\n\n###|\n$|$)/],

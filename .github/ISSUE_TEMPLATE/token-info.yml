@@ -33,8 +33,8 @@ body:
   - type: input
     id: monthlyQuota
     attributes:
-      label: 月度额度
-      description: 每月可用的 Token 额度或费用上限
+      label: 额度
+      description: 可用的 Token 额度或费用上限
       placeholder: 如：$200/月、1000万 tokens/月
     validations:
       required: true
