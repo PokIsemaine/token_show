@@ -6,14 +6,63 @@ body:
     attributes:
       value: |
         感谢你分享 Token 报销信息！请如实填写，个人敏感信息（如姓名）无需填写。
-  - type: input
+  - type: checkboxes
     id: company
     attributes:
-      label: 公司
-      description: 公司全称或常用简称
-      placeholder: 如：字节跳动、阿里巴巴、OpenAI
+      label: 公司（可多选）
+      options:
+        - label: "字节跳动 / TikTok"
+          id: 字节跳动
+        - label: "阿里巴巴"
+          id: 阿里巴巴
+        - label: "腾讯"
+          id: 腾讯
+        - label: "百度"
+          id: 百度
+        - label: "华为"
+          id: 华为
+        - label: "美团"
+          id: 美团
+        - label: "京东"
+          id: 京东
+        - label: "小米"
+          id: 小米
+        - label: "网易"
+          id: 网易
+        - label: "快手"
+          id: 快手
+        - label: "小红书"
+          id: 小红书
+        - label: "蚂蚁集团"
+          id: 蚂蚁集团
+        - label: "商汤科技"
+          id: 商汤科技
+        - label: "旷视科技"
+          id: 旷视科技
+        - label: "OpenAI"
+          id: OpenAI
+        - label: "Google"
+          id: Google
+        - label: "Microsoft"
+          id: Microsoft
+        - label: "Meta"
+          id: Meta
+        - label: "Amazon"
+          id: Amazon
+        - label: "Anthropic"
+          id: Anthropic
+        - label: "其他"
+          id: 其他
     validations:
       required: true
+  - type: input
+    id: companyOther
+    attributes:
+      label: 其他公司名称
+      description: 如在上述列表中未找到，请填写公司全称
+      placeholder: 请填写公司名称
+    validations:
+      required: false
   - type: input
     id: department
     attributes:
@@ -22,30 +71,131 @@ body:
       placeholder: 如：AI Lab、基础架构部
     validations:
       required: false
-  - type: input
+  - type: checkboxes
     id: tokenType
     attributes:
-      label: Token 类型
-      description: 使用的 AI 模型/服务
-      placeholder: 如：OpenAI GPT-4、Claude Opus、内部模型、Azure OpenAI
+      label: Token 类型（可多选）
+      options:
+        - label: "OpenAI GPT 系列"
+          id: OpenAI GPT
+        - label: "Anthropic Claude 系列"
+          id: Anthropic Claude
+        - label: "Google Gemini 系列"
+          id: Google Gemini
+        - label: "通义千问 Qwen"
+          id: 通义千问 Qwen
+        - label: "文心一言 ERNIE"
+          id: 文心一言 ERNIE
+        - label: "豆包 Doubao"
+          id: 豆包 Doubao
+        - label: "混元 Hunyuan"
+          id: 混元 Hunyuan
+        - label: "智谱 GLM / ChatGLM"
+          id: 智谱 GLM
+        - label: "DeepSeek"
+          id: DeepSeek
+        - label: "Moonshot Kimi"
+          id: Moonshot Kimi
+        - label: "MiniMax"
+          id: MiniMax
+        - label: "内部自研模型"
+          id: 内部自研模型
+        - label: "Azure OpenAI"
+          id: Azure OpenAI
+        - label: "AWS Bedrock"
+          id: AWS Bedrock
+        - label: "Cohere"
+          id: Cohere
+        - label: "其他"
+          id: 其他
     validations:
       required: true
   - type: input
-    id: monthlyQuota
+    id: tokenTypeOther
     attributes:
-      label: 额度
-      description: 可用的 Token 额度或费用上限
-      placeholder: 如：$200/月、1000万 tokens/月
+      label: 其他 Token 类型
+      description: 如在上述列表中未找到，请填写具体模型名称
+      placeholder: 请填写模型名称
+    validations:
+      required: false
+  - type: input
+    id: quotaAmount
+    attributes:
+      label: 额度数值
+      description: 具体额度数字，或填写"不限/无上限"等描述
+      placeholder: 如：200、不限、无上限、500万
+    validations:
+      required: true
+  - type: checkboxes
+    id: quotaUnit
+    attributes:
+      label: 额度单位
+      options:
+        - label: "$（美元）"
+          id: "$"
+        - label: "¥（人民币）"
+          id: "¥"
+        - label: "Token 数量"
+          id: "Token"
+        - label: "其他"
+          id: 其他
     validations:
       required: true
   - type: input
+    id: quotaUnitOther
+    attributes:
+      label: 其他单位
+      placeholder: 如：credits、points
+    validations:
+      required: false
+  - type: checkboxes
+    id: quotaPeriod
+    attributes:
+      label: 报销周期
+      options:
+        - label: "年"
+          id: /年
+        - label: "月"
+          id: /月
+        - label: "日"
+          id: /日
+        - label: "项目（一次性）"
+          id: /项目
+        - label: "按需（无固定周期）"
+          id: 按需
+        - label: "无限制"
+          id: 无限制
+    validations:
+      required: true
+  - type: checkboxes
     id: reimbursementMethod
     attributes:
-      label: 报销方式
-      description: 获取 Token 额度的方式
-      placeholder: 如：公司账号直充、个人垫付报销、API Key 分发
+      label: 报销方式（可多选）
+      options:
+        - label: "公司账号直充 / 公司发放 API Key"
+          id: 公司账号直充
+        - label: "个人垫付后报销"
+          id: 个人垫付报销
+        - label: "公司统一充值到个人账户"
+          id: 充值到个人账户
+        - label: "按量计费，公司月末统一结算"
+          id: 按量计费结算
+        - label: "固定额度发放，不报销超额"
+          id: 固定额度
+        - label: "公司提供额度截图凭证，自行充值"
+          id: 凭证自行充值
+        - label: "其他"
+          id: 其他
     validations:
       required: true
+  - type: input
+    id: reimbursementMethodOther
+    attributes:
+      label: 其他报销方式
+      description: 如在上述列表中未找到，请填写具体方式
+      placeholder: 请填写报销方式
+    validations:
+      required: false
   - type: textarea
     id: restrictions
     attributes:

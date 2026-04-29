@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-defineProps({
+const props = defineProps({
   entry: {
     type: Object,
     required: true,
@@ -28,7 +28,7 @@ const expanded = ref(false)
 
     <div class="space-y-2 text-sm">
       <div class="flex items-center gap-2">
-        <span class="text-gray-500 dark:text-gray-400 shrink-0">月度额度</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">额度</span>
         <span class="font-medium text-green-600 dark:text-green-400">{{ entry.monthlyQuota }}</span>
       </div>
       <div class="flex items-center gap-2">
@@ -37,8 +37,13 @@ const expanded = ref(false)
       </div>
     </div>
 
+    <!-- Comment hint -->
+    <div v-if="entry.comments && entry.comments.length > 0" class="mt-3 text-xs text-gray-400">
+      💬 {{ entry.comments.length }} 条评论
+    </div>
+
     <!-- Expanded details -->
-    <div v-if="expanded" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 space-y-2 text-sm">
+    <div v-if="expanded" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 space-y-3 text-sm">
       <div v-if="entry.restrictions">
         <span class="text-gray-500 dark:text-gray-400">限制条件：</span>
         <span>{{ entry.restrictions }}</span>
@@ -47,8 +52,33 @@ const expanded = ref(false)
         <span class="text-gray-500 dark:text-gray-400">备注：</span>
         <span>{{ entry.note }}</span>
       </div>
+
+      <!-- Comments -->
+      <div v-if="entry.comments && entry.comments.length > 0" class="space-y-3">
+        <div class="text-xs text-gray-500 dark:text-gray-400 font-medium">评论</div>
+        <div
+          v-for="(comment, idx) in entry.comments"
+          :key="idx"
+          class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 text-sm"
+        >
+          <div class="text-xs text-gray-400 mb-1">
+            <a
+              :href="`https://github.com/${comment.author}`"
+              target="_blank"
+              rel="noopener"
+              class="text-blue-500 hover:underline font-medium"
+              @click.stop
+            >
+              @{{ comment.author }}
+            </a>
+            · {{ comment.createdAt.split('T')[0] }}
+          </div>
+          <p class="whitespace-pre-wrap">{{ comment.body }}</p>
+        </div>
+      </div>
+
       <div class="text-xs text-gray-400 mt-2">
-        提交于 {{ entry.submittedAt }}
+        发布于 {{ entry.publishedAt }}
         <a
           v-if="entry.issueNumber"
           :href="`https://github.com/PokIsemaine/token_show/issues/${entry.issueNumber}`"
@@ -62,7 +92,7 @@ const expanded = ref(false)
       </div>
     </div>
 
-    <!-- Expand hint -->
+    <!-- Collapse hint -->
     <div v-else class="mt-3 text-xs text-gray-400">
       点击展开详情
     </div>
