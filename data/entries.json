@@ -1,5 +1,47 @@
 [
   {
+    "id": "i4-百度-dwdwdwdwdw-公司账号直充--公司发放-API-Key",
+    "company": "百度",
+    "department": "未填写",
+    "tokenType": "dwdwdwdwdw",
+    "monthlyQuota": "24242 $（美元）",
+    "reimbursementMethod": "公司账号直充 / 公司发放 API Key",
+    "restrictions": "",
+    "note": "",
+    "publishedAt": "2026-04-29",
+    "submittedAt": "2026-04-29",
+    "issueNumber": 4,
+    "comments": []
+  },
+  {
+    "id": "i4-百度-dwdwdwdwdw-个人垫付后报销",
+    "company": "百度",
+    "department": "未填写",
+    "tokenType": "dwdwdwdwdw",
+    "monthlyQuota": "24242 $（美元）",
+    "reimbursementMethod": "个人垫付后报销",
+    "restrictions": "",
+    "note": "",
+    "publishedAt": "2026-04-29",
+    "submittedAt": "2026-04-29",
+    "issueNumber": 4,
+    "comments": []
+  },
+  {
+    "id": "i4-百度-dwdwdwdwdw-公司统一充值到个人账户",
+    "company": "百度",
+    "department": "未填写",
+    "tokenType": "dwdwdwdwdw",
+    "monthlyQuota": "24242 $（美元）",
+    "reimbursementMethod": "公司统一充值到个人账户",
+    "restrictions": "",
+    "note": "",
+    "publishedAt": "2026-04-29",
+    "submittedAt": "2026-04-29",
+    "issueNumber": 4,
+    "comments": []
+  },
+  {
     "id": "i3-w-OpenAI-公司账号直充--公司发放-API-Key",
     "company": "w",
     "department": "未填写",

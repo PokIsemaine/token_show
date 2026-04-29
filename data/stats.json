@@ -1,7 +1,8 @@
 {
-  "totalEntries": 3,
-  "companies": 1,
+  "totalEntries": 6,
+  "companies": 2,
   "tokenTypes": {
+    "dwdwdwdwdw": 3,
     "OpenAI": 1,
     "Anthropic": 1,
     "1w": 1
